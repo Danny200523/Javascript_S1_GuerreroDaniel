@@ -31,19 +31,21 @@ export function inscripcion() {
 ////FUNCION VER NOTAS////
 export function vernotas(){
     let camp=campers.Rutas;
-    for (let i=1;i<length.camp;i++){
+    let leng = Object.keys(camp).length;
+    for (let i=0;i<leng;i++){
         let rut=prompt("dime tu ruta\n"+
                         "1.Java\n"+
                         "2.NodeJS\n"+
                         "3.NetCore\n"+
                         "EScribelo identico mayus y mins etc etc");
         let skill=prompt("ingrese la skill de la cual quiera ver las notas");
-        let campid=prompt("ingresa tu id para saber tus notas");
+        let campid = parseInt(prompt("ingresa tu id para saber tus notas"));
         if ((camp[rut][skill][i]["ID"])==campid){
-            alert(camp[rut][skill][i]["Notas"]["notaProyecto"])
-            alert(camp[rut][skill][i]["Notas"]["notaFiltro"])
-            alert(camp[rut][skill][i]["Notas"]["notaTrabajos"])
-            alert(camp[rut][skill][i]["Notas"]["notaFinal"])
+            alert("Nota Proyecto: " + (camp[rut][skill][i]["Notas"]["notaProyecto"]))
+            alert("Nota Filtro: " + camp[rut][skill][i]["Notas"]["notaFiltro"])
+            alert("Nota Trabajos: " + camp[rut][skill][i]["Notas"]["notaTrabajos"])
+            alert("Nota Final: " + camp[rut][skill][i]["Notas"]["notaFinal"])
+            break;
         };
     }
 }
