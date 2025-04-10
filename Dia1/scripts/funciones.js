@@ -1,8 +1,13 @@
+// #####################################
+// Ejercicios DIA 1
+// #####################################
+
+////////IMPORTACIONES//////////////////
 import * as campers from "./menus.js";
 ///fUNCIONES DE CAMPER///
 ///fUNCION DE INSCRIPCION///
 export function inscripcion() {
-  let datoscamp = [];
+  let datoscamp = campers.campers;
   let id = prompt("Ingrese su numero de documento");
   let nombre = prompt("Ingrese sus dos nombres");
   let apellido = prompt("Ingrese sus dos apellidos");
@@ -18,7 +23,7 @@ export function inscripcion() {
     "Inscrito": true,
     "Retirado": false
   };
-  datoscamp.push({ 
+  datoscamp["Campers"].push({ 
     "ID": id, 
     "nombre": nombre, 
     "apellido":apellido, 
@@ -49,7 +54,7 @@ export function vernotas(){
         };
     }
 }
-/////fUNCIONES DE tRAINER/////
+/////fUNCIONES DE TRAINER/////
 export function vernotastrai(){
   let camp=campers.Rutas;
   let leng = Object.keys(camp).length;
@@ -70,9 +75,9 @@ export function vernotastrai(){
       };
   }
 }
-///////fUNCION PARA EDItAR NOtAS DE CAMPERS///////
+///////fUNCION PARA EDITAR NOTAS DE CAMPERS///////
 export function editarnota(){
-    let camp=[];
+    let camp=campers.Rutas;
     let SelRuta = prompt("Ingrese qué ruta tiene su grupo: ");
     let SelecSkill = prompt("¿Qué skill desea editar?");
     let notaedit=prompt("ingrese la nota que desea editar:\n"+
@@ -83,9 +88,10 @@ export function editarnota(){
                         "por favor escribalo tal cual"
     );
     let NuevaNota = parseInt(prompt("Ingrese la nueva nota: "));
-    camp["casa"]=NuevaNota;
+    camp[SelRuta][SelecSkill][notaedit]=NuevaNota;
 }
 ///////fUNCION PARA VER CAMPERS///////
+///////TAMBIEN USADO POR CORDINADORA/////////
 export function verestudiantes(){
     let camp=campers.Rutas
     let SelRuta = prompt("Ingrese qué ruta tiene su grupo: ")
@@ -98,7 +104,7 @@ export function verestudiantes(){
 //////fUNCIONES CORDINADORA///////
 ///////fUNCION PARA AGREGAR CAMPERS//////
 export function aggcamper(){
-    let camp=[]
+    let camp=campers.campers
     let id= parseInt(prompt("Ingrese el documento de identidad del nuevo Camper"));
     let name=prompt("Ingrese el nombre del camper nuevo ");
     let apellido= prompt("Ingrese los apellidos del camper");
@@ -116,7 +122,7 @@ export function aggcamper(){
                 "Inscrito": true,
                 "Retirado": false
             };
-    camp.push({"ID":id,
+    camp["Campers"].push({"ID":id,
                             "nombre":name,
                             "apellido":apellido,
                             "direccion":dir,
@@ -130,28 +136,12 @@ export function aggcamper(){
                             "fechafin": fecha_fin
 });
 }
-//////fUNCION PARA VER CAMPERS/////////
-export function vercamper(){
-    let camp=campers.campers
-    let c=0
-    
-    let leng = Object.keys(camp).length;
-    for (let i=0;I<leng;i++){
-       alert("Camper#",i+1," ID: ",camp["Campers"][c]["ID"]+"∖n"+
-       "Nombre: ",camp["Campers"][c]["nombre"]+"∖n"+
-       "apellido: ",camp["Campers"][c]["apellido"]+"∖n"+
-       "direccion: ",camp["Campers"][c]["direccion"]+"∖n"+
-       "Nacudientes: ",camp["Campers"][c]["acudientes"]+"∖n"+
-       "#celular: ",camp["Campers"][c]["#celular"]+"∖n"+
-       "Estado: ",camp["Campers"][c]["Estado"]+"∖n"+
-       "Curso ",camp["Campers"][c]["Curso"])
-       c+=1
-    }}
 ////////fUNCION PARA EDItAR DAtOS DE CAMPERS//////
 export function editcamper(){
-    let camp=[]
-    let E=prompt("A que estudiante quiere editar?")
-    let ed=prompt(
+    let bo=true;
+    let camp=campers.campers;
+    let E = parseInt(prompt("¿A qué estudiante quiere editar?"));
+    let ed= parseInt(prompt(
     "Que quiere editar?\n"+
     "(1). ID\n"+
     "(2). Nombre\n"+
@@ -160,7 +150,7 @@ export function editcamper(){
     "(5). Acudiente\n"+
     "(6). #celular\n"+
     "(7). Estado\n"+
-    "(8). Curso")
+    "(8). Curso"));
     if (ed==1){
         let identi=prompt("Ingrese el nuevo ID");
         camp["Campers"][E-1]["ID"]=identi;
@@ -189,20 +179,20 @@ export function editcamper(){
     else if (ed==8){
         let cur=prompt("Ingrese el nuevo curso");
         camp["Camper"][E-1]["Curso"]=cur;
-    }
-    let bo=false;
+    };
+    if (ed==7){
+        bo=false;
+        alert("Ingrese el nuevo Estado\n");
+        alert(
+            "(1). Aprobado\n"+
+            "(2). Cursando\n"+
+            "(3). En proceso de ingreso\n"+
+            "(4). Expulsado\n"+
+            "(5). Graduado\n"+
+            "(6). Inscrito\n"+
+            "(7). Retirado\n"
+            )};
     while (bo==false){
-        if (ed==7){
-            alert("Ingrese el nuevo Estado\n");
-            alert(
-                "(1). Aprobado\n"+
-                "(2). Cursando\n"+
-                "(3). En proceso de ingreso\n"+
-                "(4). Expulsado\n"+
-                "(5). Graduado\n"+
-                "(6). Inscrito\n"+
-                "(7). Retirado\n"
-                )};
             let estad=prompt();
             if (estad==1){
                 camp["Campers"][E-1]["Estado"]["Aprobado"]=true;
@@ -281,3 +271,21 @@ export function editcamper(){
                 bo=false;}
             }
 }
+///////FUNCION ELIMINAR CAMPER///////////////////////
+export function eliminarcamper(){
+    let camperid = prompt("Ingresa el id del camper que quieres eliminar");
+    let camp=campers.campers;
+    let leng = Object.keys(camp).length;
+    for (let i=0;i>leng;i++){
+        if ((camp["Campers"][i]["ID"])=camperid){
+            camp["Campers"].splice(1,i)
+            break;
+        };
+    };
+}
+/////////FUNCION PARA AGREGAR CAMPER A CURSO///////
+export function CAMPERcurso(){
+    
+}
+
+//Desarrollado por : Daniel Guerrero - T.I. 1.049.291.388

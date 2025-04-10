@@ -1,3 +1,7 @@
+// #####################################
+// Ejercicios DIA 1
+// #####################################
+
 ///IMPORTACIONES///
 import * as menus from './menus.js';
 import * as funciones from './funciones.js';
@@ -52,9 +56,10 @@ while (booleanito === true) {
       funciones.editcamper();
       alert("Camper editado con exito")
     } else if (opccor == 3) {
-      funciones.vercamper();
+      funciones.verestudiantes();
     } else if (opccor == 4) {
-      //Eliminar estudiante
+      funciones.eliminarcamper();
+      alert("Se elimino al camper satisfactoriamente");
     } else if (opccor == 5) {
       //Agregar estudiante a curso
     } else if (opccor == 6) {
@@ -72,3 +77,5 @@ while (booleanito === true) {
     alert("El Numero que Ingresaste no fue validado ❌");
   };
 }
+
+//Desarrollado por : Daniel Guerrero - T.I. 1.049.291.388

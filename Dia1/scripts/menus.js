@@ -1,3 +1,7 @@
+// #####################################
+// Ejercicios DIA 1
+// #####################################
+
 ///Script encargado de guardar los menus como alertas///
 export function MenuPrincipal(){
     alert(  "==============================\n"+
@@ -77,7 +81,7 @@ export function MenuReportes(){
             "= (4). Mostrar campers con riesgo alto       =\n"+
             "==============================================");
 }
-////Datos////
+///////////////////////////////////////////Datos/////////////////////////////////////////////////////
 export let campers={
     "Campers": [
                 {
@@ -3645,3 +3649,5 @@ export let Trainers={
          "Ruta":".NET"}
 ]
 }
+
+//Desarrollado por : Daniel Guerrero - T.I. 1.049.291.388
