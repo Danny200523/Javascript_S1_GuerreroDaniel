@@ -10,8 +10,10 @@ while (booleanito === true) {
   let opcion = prompt();
 
   if (opcion == 1) {
+    ////INGRESA A LA OPCION CAMPER///
     menus.MenuCamper();
     let opccamper = prompt();
+    ////PRUEBA LAS OPCIONES POSIBLES///
     if (opccamper == 1) {
         menus.SiInscrito();
         menus.menucamp();
@@ -27,27 +29,30 @@ while (booleanito === true) {
       funciones.inscripcion();
       alert("inscripcion satisfactoria");
     }
-
+////INGRESA A LA OPCION TRAINER////
   } else if (opcion == 2) {
     menus.MenuTrainer();
     let opctrainer = prompt();
     if (opctrainer == 1) {
-      //Ver notas
+      funciones.vernotastrai();
     } else if (opctrainer == 2) {
-      //Editar notas
+      funciones.editarnota();
+      alert("La nota ha sido actualizada satisfactoriamente")
     } else if (opctrainer == 3) {
-      //Ver estudiantes
-    }
+      funciones.verestudiantes();
+    };
 
   } else if (opcion == 3) {
     menus.Menucordinadora();
     let opccor = prompt();
     if (opccor == 1) {
-      //Agregar estudiante
+      funciones.aggcamper();
+      alert("Camper registrado satisfactoriamente")
     } else if (opccor == 2) {
-      //Editar estudiante
+      funciones.editcamper();
+      alert("Camper editado con exito")
     } else if (opccor == 3) {
-      //Ver estudiantes
+      funciones.vercamper();
     } else if (opccor == 4) {
       //Eliminar estudiante
     } else if (opccor == 5) {
@@ -58,11 +63,12 @@ while (booleanito === true) {
       //Ver menú de reportes
     } else if (opccor == 8) {
       //Volver al menú principal
-    }
+    };
 
   } else if (opcion == 4) {
     booleanito = false;
+    alert("Gracias por usar nustra plataforma 😊")
   } else {
     alert("El Numero que Ingresaste no fue validado ❌");
-  }
+  };
 }
