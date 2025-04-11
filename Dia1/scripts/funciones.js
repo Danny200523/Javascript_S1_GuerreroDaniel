@@ -1,5 +1,5 @@
 // #####################################
-// Ejercicios DIA 1
+// #########Ejercicios DIA 1############
 // #####################################
 
 ////////IMPORTACIONES//////////////////
@@ -79,16 +79,26 @@ export function vernotastrai(){
 export function editarnota(){
     let camp=campers.Rutas;
     let SelRuta = prompt("Ingrese qué ruta tiene su grupo: ");
-    let SelecSkill = prompt("¿Qué skill desea editar?");
-    let notaedit=prompt("ingrese la nota que desea editar:\n"+
-                        "notafinal\n"+
-                        "notaProyecto\n"+
-                        "notafiltro\n"+
-                        "notatrabajos\n"+
-                        "por favor escribalo tal cual"
-    );
-    let NuevaNota = parseInt(prompt("Ingrese la nueva nota: "));
-    camp[SelRuta][SelecSkill][notaedit]=NuevaNota;
+    if (SelRuta in camp){
+        let SelecSkill = prompt("¿Qué skill desea editar?");
+        if (SelecSkill in camp["Java"]){
+        let notaedit=prompt("ingrese la nota que desea editar:\n"+
+                            "notaFinal\n"+
+                            "notaProyecto\n"+
+                            "notaFiltro\n"+
+                            "notaTrabajos\n"+
+                            "por favor escribalo tal cual"
+        );
+        let NuevaNota = parseInt(prompt("Ingrese la nueva nota: "));
+        camp[SelRuta][SelecSkill][notaedit]=NuevaNota;
+        }
+        else{
+        alert("escriba bien")
+    }
+    }
+    else {
+        alert("Ruta no encontrada")
+    }
 }
 ///////fUNCION PARA VER CAMPERS///////
 ///////TAMBIEN USADO POR CORDINADORA/////////

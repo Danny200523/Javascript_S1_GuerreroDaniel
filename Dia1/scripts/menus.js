@@ -64,10 +64,9 @@ export function Menucordinadora(){
             "=   (2). Editar estudiante              =\n"+
             "=   (3). Ver estudiantes                =\n"+
             "=   (4). Eliminar estudiante            =\n"+
-            "=   (5). Agregar estudiante a curso     =\n"+
-            "=   (6). Agregar nueva ruta de estudio  =\n"+
-            "=   (7). Ver menú de reportes           =\n"+
-            "=   (8). Volver al menú principal       =\n"+
+            "=   (5). Agregar nueva ruta de estudio  =\n"+
+            "=   (6). Ver menú de reportes           =\n"+
+            "=   (7). Volver al menú principal       =\n"+
             "=========================================");
 }
 ///MENU DE REPORTES///
@@ -76,7 +75,7 @@ export function MenuReportes(){
             "=             ¿Qué desea hacer?              =\n"+
             "==============================================\n"+
             "= (1). Ver campers en estado inscrito        =\n"+
-            "= (2). Ver campers que aprobaron examen inicial =\n"+
+            "=(2). Ver campers que aprobaron examen inicial=\n"+
             "= (3). Ver trainers                          =\n"+
             "= (4). Mostrar campers con riesgo alto       =\n"+
             "==============================================");

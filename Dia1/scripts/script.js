@@ -61,12 +61,10 @@ while (booleanito === true) {
       funciones.eliminarcamper();
       alert("Se elimino al camper satisfactoriamente");
     } else if (opccor == 5) {
-      //Agregar estudiante a curso
-    } else if (opccor == 6) {
       //Agregar nueva ruta de estudio
-    } else if (opccor == 7) {
+    } else if (opccor == 6) {
       //Ver menú de reportes
-    } else if (opccor == 8) {
+    } else if (opccor == 7) {
       //Volver al menú principal
     };
 
