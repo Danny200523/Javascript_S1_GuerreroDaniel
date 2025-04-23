@@ -1,0 +1,19 @@
+#box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.pokedex{
+    margin-top: 5%;
+}
+#sprite{
+    margin-top: -21vw;
+    margin-left: -2vw;
+}
+#sprite_gif{
+    width: 4vw;
+}
+#showUp{
+    margin-top: 4vw;
+}
