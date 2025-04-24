@@ -4,8 +4,7 @@ function fetchPoke() {
     let pepito = new XMLHttpRequest();
     let url = `https://pokeapi.co/api/v2/pokemon/${id}`;
     if (id == "") {
-        id = minus_id(id);
-        id = plus_id(id);
+        id=1;
     }
     pepito.open('GET', url);
     pepito.onreadystatechange = (function () {
@@ -27,7 +26,7 @@ function displayPoke(data) {
 }
 function spritepoke(data) {
     let sprite = document.getElementById("sprite");
-    sprite.innerHTML = `<img style="width=4vw" id="sprite_gif" src=${data["sprites"]["other"]["showdown"]["front_default"]}>`;
+    sprite.innerHTML = `<img style="width=2vw" id="sprite_gif" src=${data["sprites"]["other"]["showdown"]["front_default"]}>`;
     console.log(sprite)
 }
 
