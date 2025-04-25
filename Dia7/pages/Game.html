@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="../storage/icon/icon.svg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="../storage/icon/icon.svg" />
     <title>Casino</title>
-    <link rel="stylesheet" href="../style/style_game.css">
-</head>
+    <link rel="stylesheet" href="../style/style_game.css" />
+  </head>
 
-<body>
-    <a href="../index.html" class="menu-button">
+  <body>
+    <div class="flex">
+      <a href="../index.html" class="menu-button">
         <button id="menu-link" class="menu-principal">MENU PRINCIPAL</button>
-    </a>
-    <div id="card_machine">
-        <img src="" alt="">
+      </a>
+      <div class="flex2">
+        <div id="card_machine">
+          <img class="img_machine" style="width: 1vw" src="" alt="" />
+        </div>
+        <div id="card_human">
+          <img class="img_human" style="width: 1vw" src="" alt="" />
+        </div>
+        <div class="flex_buttons">
+          <div class="higher">
+            <b>HIGHER</b>
+          </div>
+          <div class="lower">
+            <b>LOWER</b>
+          </div>
+        </div>
+      </div>
     </div>
-    <div id="card_human">
-        <img src="" alt="">
-    </div>
-</body>
-<script src="../scripts/main.js"></script>
+  </body>
+  <script src="../scripts/main.js"></script>
 </html>
