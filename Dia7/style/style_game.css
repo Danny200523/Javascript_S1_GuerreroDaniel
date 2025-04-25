@@ -46,431 +46,451 @@ body{
 
 /* Estilos para el contenedor principal */
 /* Estilos para el contenedor principal */
+/* Contenedor principal */
 .flex2 {
-    display: flex;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5vmin;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 2vmin;
+  box-shadow: 0 1vmin 2vmin rgba(0, 0, 0, 0.5);
+  margin: 5vmin auto;
+  width: 90%;
+  max-width: 500px;
+  border: 0.3vmin solid rgba(252, 215, 0, 0.5);
+}
+
+/* Estilo mejorado para "Carta Actual" */
+.p {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: clamp(1rem, 5vmin, 1.5rem);
+  font-weight: 800;
+  color: #FCD700;
+  text-shadow: 
+    0.2vmin 0.2vmin 0 #000000,
+    -0.2vmin 0.2vmin 0 #000000,
+    0.2vmin -0.2vmin 0 #000000,
+    -0.2vmin -0.2vmin 0 #000000,
+    0 0 1vmin rgba(252, 215, 0, 0.6);
+  text-align: center;
+  letter-spacing: max(0.2vmin, 2px);
+  text-transform: uppercase;
+  margin: 2vmin 0 4vmin 0;
+  padding: 2vmin 5vmin;
+  background: linear-gradient(145deg, rgba(0, 0, 0, 0.9), rgba(40, 40, 40, 0.8));
+  border-radius: 2vmin;
+  border: 0.3vmin solid #FCD700;
+  position: relative;
+  display: inline-block;
+  transform: perspective(100vmin) rotateX(5deg);
+  box-shadow: 
+    0 1vmin 3vmin rgba(0, 0, 0, 0.6),
+    0 0 4vmin rgba(252, 215, 0, 0.3);
+  z-index: 5;
+  animation: card-title-glow 3s infinite, card-title-border 6s infinite alternate;
+}
+
+/* Decoración de esquinas tipo naipes */
+.p::before, .p::after {
+  content: "♠";
+  position: absolute;
+  font-size: clamp(0.8rem, 3vmin, 1.2rem);
+  color: #FCD700;
+}
+
+.p::before {
+  top: 1vmin;
+  left: 1vmin;
+}
+
+.p::after {
+  content: "♦";
+  bottom: 1vmin;
+  right: 1vmin;
+  transform: rotate(180deg);
+}
+
+/* Efecto de reflejo como en cartas brillantes */
+.p::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0.1) 47%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.05) 53%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+  animation: shine-effect 4s infinite ease-in-out;
+  z-index: 2;
+}
+
+/* Contenedor para la carta */
+#card_human {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3vmin 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1.5vmin;
+  padding: 2vmin;
+  min-height: 30vmin;
+  width: 80%;
+  max-width: 200px;
+  box-shadow: 0 0 2vmin rgba(252, 215, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+#card_human:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 3vmin rgba(252, 215, 0, 0.5);
+}
+
+/* Estilo para la imagen de la carta */
+.img_human {
+  width: 100% !important;
+  height: auto;
+  max-height: 100%;
+  transition: all 0.5s ease;
+  object-fit: contain;
+}
+
+/* Contenedor de botones */
+.flex_buttons {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 3vmin;
+  flex-wrap: wrap;
+}
+
+/* Estilos generales para ambos botones */
+.higher, .lower {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  min-width: 120px;
+  height: 10vmin;
+  min-height: 40px;
+  margin: 2vmin;
+  font-family: 'Impact', 'Haettenschweiler', sans-serif;
+  font-size: clamp(0.8rem, 3vmin, 1.4rem);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  position: relative;
+  overflow: hidden;
+  border: none;
+  text-shadow: 0.2vmin 0.2vmin 0.4vmin rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1vmin 3vmin rgba(0, 0, 0, 0.5), 0 0 2vmin rgba(252, 215, 0, 0.8);
+  transform-style: preserve-3d;
+  border-radius: 2vmin;
+  letter-spacing: 0.3vmin;
+  text-transform: uppercase;
+}
+
+/* Estilos específicos para el botón HIGHER */
+.higher {
+  background: linear-gradient(135deg, #FCD700 0%, #ffaa00 100%);
+  color: #000000;
+  animation: pulse-gold 2s infinite, rotate-shadow 4s infinite alternate;
+}
+
+.higher::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 60%);
+  transform: rotate(0deg);
+  animation: rotate-shine 3s linear infinite;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.higher:hover {
+  transform: translateY(-0.5vmin) scale(1.05);
+  background: linear-gradient(135deg, #ffaa00 0%, #FCD700 100%);
+  box-shadow: 0 2vmin 3vmin rgba(0, 0, 0, 0.4), 0 0 4vmin rgba(252, 215, 0, 1);
+  letter-spacing: 0.4vmin;
+}
+
+.higher:hover::after {
+  content: '▲';
+  position: absolute;
+  animation: float-up 0.8s ease-out infinite;
+  font-size: clamp(1rem, 4vmin, 1.8rem);
+  right: 2vmin;
+  opacity: 1;
+}
+
+/* Estilos específicos para el botón LOWER */
+.lower {
+  background: linear-gradient(135deg, #000000 0%, #333333 100%);
+  color: #FCD700;
+  border: 0.3vmin solid #FCD700;
+  animation: pulse-black 2s infinite, glowing-border 3s infinite alternate;
+}
+
+.lower::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(252,215,0,0.3) 0%, rgba(252,215,0,0) 70%);
+  transform: rotate(0deg);
+  animation: rotate-shine 4s linear infinite;
+  pointer-events: none;
+}
+
+.lower:hover {
+  transform: translateY(-0.5vmin) scale(1.05);
+  background: linear-gradient(135deg, #333333 0%, #000000 100%);
+  box-shadow: 0 2vmin 3vmin rgba(0, 0, 0, 0.4), 0 0 4vmin rgba(252, 215, 0, 1);
+  letter-spacing: 0.4vmin;
+}
+
+.lower:hover::after {
+  content: '▼';
+  position: absolute;
+  animation: float-down 0.8s ease-out infinite;
+  font-size: clamp(1rem, 4vmin, 1.8rem);
+  right: 2vmin;
+  opacity: 1;
+}
+
+/* Efecto al hacer clic en los botones */
+.higher:active, .lower:active {
+  transform: translateY(0.5vmin) scale(0.95);
+  box-shadow: 0 0.5vmin 1vmin rgba(0, 0, 0, 0.3);
+  transition: 0.1s;
+}
+
+/* ANIMACIONES */
+@keyframes card-title-glow {
+  0%, 100% {
+    text-shadow: 
+      0.2vmin 0.2vmin 0 #000000,
+      -0.2vmin 0.2vmin 0 #000000,
+      0.2vmin -0.2vmin 0 #000000,
+      -0.2vmin -0.2vmin 0 #000000,
+      0 0 1vmin rgba(252, 215, 0, 0.6);
+  }
+  50% {
+    text-shadow: 
+      0.2vmin 0.2vmin 0 #000000,
+      -0.2vmin 0.2vmin 0 #000000,
+      0.2vmin -0.2vmin 0 #000000,
+      -0.2vmin -0.2vmin 0 #000000,
+      0 0 2vmin rgba(252, 215, 0, 0.9);
+  }
+}
+
+@keyframes card-title-border {
+  0%, 100% {
+    border-color: #FCD700;
+    box-shadow: 
+      0 1vmin 3vmin rgba(0, 0, 0, 0.6),
+      0 0 4vmin rgba(252, 215, 0, 0.3);
+  }
+  50% {
+    border-color: #ffb700;
+    box-shadow: 
+      0 1vmin 3vmin rgba(0, 0, 0, 0.6),
+      0 0 5vmin rgba(252, 215, 0, 0.5);
+  }
+}
+
+@keyframes shine-effect {
+  0% {
+    transform: rotate(25deg) translateX(-30%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(25deg) translateX(30%);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-gold {
+  0% {
+    box-shadow: 0 0 2vmin rgba(252, 215, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 4vmin rgba(252, 215, 0, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 2vmin rgba(252, 215, 0, 0.5);
+  }
+}
+
+@keyframes pulse-black {
+  0% {
+    box-shadow: 0 0 2vmin rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 4vmin rgba(0, 0, 0, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 2vmin rgba(0, 0, 0, 0.5);
+  }
+}
+
+@keyframes rotate-shine {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-2vmin);
+    opacity: 0;
+  }
+}
+
+@keyframes float-down {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(2vmin);
+    opacity: 0;
+  }
+}
+
+@keyframes glowing-border {
+  0% {
+    border-color: #FCD700;
+  }
+  50% {
+    border-color: #ffaa00;
+    border-width: 0.4vmin;
+  }
+  100% {
+    border-color: #FCD700;
+  }
+}
+
+@keyframes rotate-shadow {
+  0% {
+    filter: drop-shadow(0 0 1vmin rgba(252, 215, 0, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 1.5vmin rgba(255, 165, 0, 0.8));
+  }
+  100% {
+    filter: drop-shadow(0 0 1vmin rgba(252, 215, 0, 0.6));
+  }
+}
+
+/* Efectos de neón intermitentes para los botones */
+.higher::after, .lower::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: -1;
+  border-radius: 2vmin;
+  transition: all 0.3s ease;
+}
+
+.higher::after {
+  box-shadow: 0 0 5vmin 1vmin rgba(252, 215, 0, 0.8);
+  animation: neon-flash 2s infinite alternate;
+}
+
+.lower::after {
+  box-shadow: 0 0 5vmin 1vmin rgba(0, 0, 0, 0.8);
+  animation: neon-flash 3s infinite alternate;
+}
+
+@keyframes neon-flash {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    opacity: 0.7;
+  }
+  20%, 24%, 55% {
+    opacity: 0.2;
+  }
+}
+
+/* Añadir un zoom al pasar el cursor */
+.higher:hover, .lower:hover {
+  animation: wiggle 0.5s ease-in-out;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: translateY(-0.5vmin) scale(1.05); }
+  25% { transform: translateY(-0.5vmin) scale(1.05) rotate(2deg); }
+  75% { transform: translateY(-0.5vmin) scale(1.05) rotate(-2deg); }
+}
+
+/* Responsividad mejorada */
+@media screen and (max-width: 768px) {
+  .flex2 {
+    padding: 4vmin;
+  }
+  
+  .flex_buttons {
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-    margin: 20px auto;
-    max-width: 500px;
-    border: 3px solid rgba(252, 215, 0, 0.5);
   }
   
-  /* Estilo mejorado para "Carta Actual" */
-  .p {
-    font-family: 'Playfair Display', 'Georgia', serif;
-    font-size: 32px;
-    font-weight: 800;
-    color: #FCD700;
-    text-shadow: 
-      2px 2px 0 #000000,
-      -2px 2px 0 #000000,
-      2px -2px 0 #000000,
-      -2px -2px 0 #000000,
-      0 0 10px rgba(252, 215, 0, 0.6);
-    text-align: center;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin: 10px 0 20px 0;
-    padding: 10px 25px;
-    background: linear-gradient(145deg, rgba(0, 0, 0, 0.9), rgba(40, 40, 40, 0.8));
-    border-radius: 12px;
-    border: 3px solid #FCD700;
-    position: relative;
-    display: inline-block;
-    transform: perspective(500px) rotateX(5deg);
-    box-shadow: 
-      0 6px 20px rgba(0, 0, 0, 0.6),
-      0 0 30px rgba(252, 215, 0, 0.3);
-    z-index: 5;
-    animation: card-title-glow 3s infinite, card-title-border 6s infinite alternate;
-  }
-  
-  /* Decoración de esquinas tipo naipes */
-  .p::before, .p::after {
-    content: "♠";
-    position: absolute;
-    font-size: 20px;
-    color: #FCD700;
-  }
-  
-  .p::before {
-    top: 8px;
-    left: 8px;
-  }
-  
-  .p::after {
-    content: "♦";
-    bottom: 8px;
-    right: 8px;
-    transform: rotate(180deg);
-  }
-  
-  /* Efecto de reflejo como en cartas brillantes */
-  .p::after {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.05) 40%,
-      rgba(255, 255, 255, 0.1) 47%,
-      rgba(255, 255, 255, 0.4) 50%,
-      rgba(255, 255, 255, 0.05) 53%,
-      rgba(255, 255, 255, 0) 100%
-    );
-    transform: rotate(25deg);
-    pointer-events: none;
-    animation: shine-effect 4s infinite ease-in-out;
-    z-index: 2;
-  }
-  
-  /* Contenedor para la carta */
-  #card_human {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 10px;
-    min-height: 200px;
-    min-width: 150px;
-    box-shadow: 0 0 15px rgba(252, 215, 0, 0.3);
-    transition: all 0.3s ease;
-  }
-  
-  #card_human:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(252, 215, 0, 0.5);
-  }
-  
-  /* Estilo para la imagen de la carta */
-  .img_human {
-    width: 150px !important; /* Sobrescribe el estilo inline */
-    max-width: 100%;
-    height: auto;
-    transition: all 0.5s ease;
-  }
-  
-  /* Contenedor de botones */
-  .flex_buttons {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    margin-top: 20px;
-  }
-  
-  /* Estilos generales para ambos botones */
   .higher, .lower {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-    height: 55px;
-    margin: 10px;
-    font-family: 'Impact', 'Haettenschweiler', sans-serif;
-    font-size: 22px;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    position: relative;
-    overflow: hidden;
-    border: none;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(252, 215, 0, 0.8);
-    transform-style: preserve-3d;
-    border-radius: 15px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    width: 80%;
+    max-width: 250px;
+    margin: 2vmin auto;
+  }
+}
+
+/* Para pantallas muy pequeñas */
+@media screen and (max-width: 480px) {
+  .flex2 {
+    padding: 3vmin;
+    margin: 3vmin auto;
   }
   
-  /* Estilos específicos para el botón HIGHER */
-  .higher {
-    background: linear-gradient(135deg, #FCD700 0%, #ffaa00 100%);
-    color: #000000;
-    animation: pulse-gold 2s infinite, rotate-shadow 4s infinite alternate;
+  .card_human {
+    min-height: 40vmin;
   }
   
-  .higher::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 60%);
-    transform: rotate(0deg);
-    animation: rotate-shine 3s linear infinite;
-    pointer-events: none;
-    opacity: 0.5;
+  .higher, .lower {
+    width: 90%;
+    height: 12vmin;
   }
-  
-  .higher:hover {
-    transform: translateY(-5px) scale(1.05);
-    background: linear-gradient(135deg, #ffaa00 0%, #FCD700 100%);
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4), 0 0 30px rgba(252, 215, 0, 1);
-    letter-spacing: 3px;
-  }
-  
-  .higher:hover::after {
-    content: '▲';
-    position: absolute;
-    animation: float-up 0.8s ease-out infinite;
-    font-size: 30px;
-    right: 20px;
-    opacity: 1;
-  }
-  
-  /* Estilos específicos para el botón LOWER */
-  .lower {
-    background: linear-gradient(135deg, #000000 0%, #333333 100%);
-    color: #FCD700;
-    border: 2px solid #FCD700;
-    animation: pulse-black 2s infinite, glowing-border 3s infinite alternate;
-  }
-  
-  .lower::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(252,215,0,0.3) 0%, rgba(252,215,0,0) 70%);
-    transform: rotate(0deg);
-    animation: rotate-shine 4s linear infinite;
-    pointer-events: none;
-  }
-  
-  .lower:hover {
-    transform: translateY(-5px) scale(1.05);
-    background: linear-gradient(135deg, #333333 0%, #000000 100%);
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4), 0 0 30px rgba(252, 215, 0, 1);
-    letter-spacing: 3px;
-  }
-  
-  .lower:hover::after {
-    content: '▼';
-    position: absolute;
-    animation: float-down 0.8s ease-out infinite;
-    font-size: 30px;
-    right: 20px;
-    opacity: 1;
-  }
-  
-  /* Efecto al hacer clic en los botones */
-  .higher:active, .lower:active {
-    transform: translateY(3px) scale(0.95);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-    transition: 0.1s;
-  }
-  
-  /* ANIMACIONES */
-  @keyframes card-title-glow {
-    0%, 100% {
-      text-shadow: 
-        2px 2px 0 #000000,
-        -2px 2px 0 #000000,
-        2px -2px 0 #000000,
-        -2px -2px 0 #000000,
-        0 0 10px rgba(252, 215, 0, 0.6);
-    }
-    50% {
-      text-shadow: 
-        2px 2px 0 #000000,
-        -2px 2px 0 #000000,
-        2px -2px 0 #000000,
-        -2px -2px 0 #000000,
-        0 0 20px rgba(252, 215, 0, 0.9);
-    }
-  }
-  
-  @keyframes card-title-border {
-    0%, 100% {
-      border-color: #FCD700;
-      box-shadow: 
-        0 6px 20px rgba(0, 0, 0, 0.6),
-        0 0 30px rgba(252, 215, 0, 0.3);
-    }
-    50% {
-      border-color: #ffb700;
-      box-shadow: 
-        0 6px 20px rgba(0, 0, 0, 0.6),
-        0 0 40px rgba(252, 215, 0, 0.5);
-    }
-  }
-  
-  @keyframes shine-effect {
-    0% {
-      transform: rotate(25deg) translateX(-30%);
-      opacity: 0;
-    }
-    20% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    80% {
-      opacity: 0;
-    }
-    100% {
-      transform: rotate(25deg) translateX(30%);
-      opacity: 0;
-    }
-  }
-  
-  @keyframes pulse-gold {
-    0% {
-      box-shadow: 0 0 15px rgba(252, 215, 0, 0.5);
-    }
-    50% {
-      box-shadow: 0 0 30px rgba(252, 215, 0, 0.8);
-    }
-    100% {
-      box-shadow: 0 0 15px rgba(252, 215, 0, 0.5);
-    }
-  }
-  
-  @keyframes pulse-black {
-    0% {
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    }
-    50% {
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
-    }
-    100% {
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    }
-  }
-  
-  @keyframes rotate-shine {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  
-  @keyframes float-up {
-    0% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(-20px);
-      opacity: 0;
-    }
-  }
-  
-  @keyframes float-down {
-    0% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(20px);
-      opacity: 0;
-    }
-  }
-  
-  @keyframes glowing-border {
-    0% {
-      border-color: #FCD700;
-    }
-    50% {
-      border-color: #ffaa00;
-      border-width: 3px;
-    }
-    100% {
-      border-color: #FCD700;
-    }
-  }
-  
-  @keyframes rotate-shadow {
-    0% {
-      filter: drop-shadow(0 0 8px rgba(252, 215, 0, 0.6));
-    }
-    50% {
-      filter: drop-shadow(0 0 12px rgba(255, 165, 0, 0.8));
-    }
-    100% {
-      filter: drop-shadow(0 0 8px rgba(252, 215, 0, 0.6));
-    }
-  }
-  
-  /* Efectos de neón intermitentes para los botones */
-  .higher::after, .lower::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0;
-    z-index: -1;
-    border-radius: 15px;
-    transition: all 0.3s ease;
-  }
-  
-  .higher::after {
-    box-shadow: 0 0 40px 5px rgba(252, 215, 0, 0.8);
-    animation: neon-flash 2s infinite alternate;
-  }
-  
-  .lower::after {
-    box-shadow: 0 0 40px 5px rgba(0, 0, 0, 0.8);
-    animation: neon-flash 3s infinite alternate;
-  }
-  
-  @keyframes neon-flash {
-    0%, 18%, 22%, 25%, 53%, 57%, 100% {
-      opacity: 0.7;
-    }
-    20%, 24%, 55% {
-      opacity: 0.2;
-    }
-  }
-  
-  /* Añadir un zoom al pasar el cursor */
-  .higher:hover, .lower:hover {
-    animation: wiggle 0.5s ease-in-out;
-  }
-  
-  @keyframes wiggle {
-    0%, 100% { transform: translateY(-5px) scale(1.05); }
-    25% { transform: translateY(-5px) scale(1.05) rotate(2deg); }
-    75% { transform: translateY(-5px) scale(1.05) rotate(-2deg); }
-  }
-  
-  /* Responsividad */
-  @media screen and (max-width: 768px) {
-    .flex2 {
-      max-width: 95%;
-      padding: 15px;
-    }
-    
-    .p {
-      font-size: 24px;
-      padding: 8px 15px;
-    }
-    
-    .flex_buttons {
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .higher, .lower {
-      width: 180px;
-    }
-  }
+}
 /***********************************************************************************/
