@@ -26,7 +26,7 @@ function cards(){
     pepito.onreadystatechange = (function(){
         if (this.readyState === 4 && this.status === 200) {
             let response = JSON.parse(this.responseText);
-            card_hu.innerHTML = `<img class="img_human" style="width: 8vw;" " src="${response["cards"][0]["image"]}">`;
+            card_hu.innerHTML = `<img class="img_human" style="width: 12vw;" " src="${response["cards"][0]["image"]}">`;
             console.log("funciono")
         }
     });
