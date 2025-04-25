@@ -5,6 +5,8 @@ body{
     background-image: url('../storage/img/Fondo_Game.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
+    opacity: 1;
+    transition: opacity 0.5s ease;
 }
 /******************************************************************/
 /******************************************************************/

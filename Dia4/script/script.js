@@ -14,6 +14,7 @@ function fetchPoke() {
             displayPoke(response);
             //"{"name":"Pedro","lastname":Gomez}"
             spritepoke(response);
+            console.log(response);
         }
     });
     pepito.send();
