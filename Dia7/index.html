@@ -8,19 +8,53 @@
     <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
+  <div class="flex2">
+    <div class="help1" id="help">
+      <p>
+        🃏 ¿Cómo jugar "Higher or Lower" con baraja de póker?<br/><br/>
+        - Higher or Lower es un juego de adivinanza súper simple y divertido que se puede jugar con una baraja de <br/>
+        - cartas de póker (sin comodines). El objetivo es adivinar si la siguiente carta será más alta o más baja que la <br/> carta actual.
+        <br/>
+        <br/>
+        🎲 ¿Qué se necesita?<br/><br/>
+        - Una baraja de 52 cartas (sin comodines).<br/>
+        <br/><br/>
+        📜 Reglas del juego (versión básica)<br/><br/>
+        - Revolver bien la baraja.<br/>
+        - Se coloca la primera carta boca arriba sobre la mesa.<br/>
+        - El jugador debe decir si cree que la siguiente carta será más alta (Higher) o más baja (Lower).<br/>
+        - Se saca la siguiente carta y se compara:<br/>
+        - Si adivinó correctamente, gana un punto o sigue jugando.<br/>
+        - Si se equivoca, termina su turno (o pierde una vida, depende de la versión).<br/>
+        - El juego puede continuar hasta que se acaben las cartas o alguien gane cierta cantidad de puntos.<br/><br/>
+        🧠 ¿Cómo se decide cuál carta es más alta?<br/><br/>
+        - El orden de menor a mayor es: 2, 3, 4, ..., 10, J, Q, K, A.<br/>
+        - Los palos (♠️ ♥️ ♦️ ♣️) no importan para comparar el valor.<br/>
+        - Si la carta es igual a la anterior:<br/>
+        - Puede contarse como pérdida, empate, o se repite el turno (según las reglas que acuerden).<br/><br/>
+        👀 Ejemplo de una ronda:<br/><br/>
+        - La primera carta es un 7.<br/>
+        - El jugador dice: “Higher”.<br/>
+        - La siguiente carta es un 9 → ✅ ¡Adivinó! Sigue jugando.<br/>
+        - Ahora hay un 9, dice “Lower”.<br/>
+        - Sale un K → ❌ Se equivocó. Pierde su turno.<br/>
+        </p>
+    </div>
     <div class="flex">
         <img class="menu_logo" src="./storage/img/Menu_logo.svg" alt="Waiting for image">
     <a href="./pages/Game.html"><button class="btn">
         PLAY
       </button></a>
     <div class="tooltip-container">
-        <a href="./pages/Help.html"><button aria-describedby="help-tooltip" class="help-button">
+        <button aria-describedby="help-tooltip" class="help-button" onclick="mostrarRecuadro()">
           Need Help?
-        </button></a>
+        </button>
         <div role="tooltip" id="help-tooltip" class="tooltip">
           <i>💡</i><strong>Get assistance</strong> with your questions!
         </div>
       </div>      
     </div>
+  </div>
 </body>
+<script src="./scripts/main.js"></script>
 </html>

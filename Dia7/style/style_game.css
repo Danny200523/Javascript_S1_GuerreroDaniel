@@ -1,0 +1,43 @@
+/******************************************************************/
+/*************BODY CUERPO PRINCIPAL DE LA PAGINA*******************/
+/******************************************************************/
+body{
+    background-image: url('../storage/img/Fondo_Game.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+/******************************************************************/
+/******************************************************************/
+
+
+/******************************************************************/
+/****************BOTON VOLVER AL MENU PRINCIPAL********************/
+/******************************************************************/
+.menu-button {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.menu-principal {
+    background-color: #000000;
+    color: #FCD700;
+    font-weight: bold;
+    width: 14vw;
+    height: 3vw;
+    padding: 0.3vw, 0.5vw;
+    border: 0.1vw solid #FCD700;
+    border-radius: 1vw;
+    cursor: pointer;
+    font-size: 1vw;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.menu-principal:hover {
+    background-color: #FCD700;
+    color: #000000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/******************************************************************/
+/******************************************************************/
