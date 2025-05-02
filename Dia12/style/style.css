@@ -1,0 +1,59 @@
+@import url('./variables.css');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: "fuente";
+}
+h2{
+    color: white;
+}
+.search_section{
+    background-color: var(--color-1);
+    padding: 30px;
+    text-align: center;
+}
+.search_section h2{
+    margin-bottom: 5px;
+    
+}
+#description{
+    color: rgb(255,255,255);
+}
+.search_bar input{
+    margin-top: 1vw;
+    border: 1px solid var(--color-3);
+    width: 90%;
+    border-radius: 2vw;
+    font-size: 1vw;
+    padding-left: 1vw;
+    height: 40px;
+}
+.people_menu{
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+    gap: 20px;
+    border: 1px solid var(--color-1);
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+.foto img{
+    width: 85px;
+    border-radius: 50px;
+    margin-top: 10px;
+    margin-left: 35px;
+}
+.information{
+    margin-top: 18px;
+}
+.information h3{
+    font-size: 30px;
+    color: var(--color-2);
+}
+.information p{
+    margin-top: 5px;
+    color: var(--color-2);
+}
