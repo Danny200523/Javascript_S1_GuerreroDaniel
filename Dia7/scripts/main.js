@@ -18,6 +18,7 @@ function shufflecards(){
 
 window.onload = function () {
     shufflecards();
+    cards();
 };
 
 function cards(){
@@ -58,12 +59,12 @@ function cards(){
 };
 
 function new_card(){
-    let pepito = new XMLHttpRequest();
+    let pepit = new XMLHttpRequest();
     let baraja = "5ods5xzzupvj";
     let nwi = document.getElementById("card_new");
     let url = `https://deckofcardsapi.com/api/deck/${baraja}/draw/?count=1`;
-    pepito.open(`GET`, url);
-    pepito.onreadystatechange = (function(){
+    pepit.open(`GET`, url);
+    pepit.onreadystatechange = (function(){
         if (this.readyState === 4 && this.status === 200) {
             let response = JSON.parse(this.responseText);
             nwi.innerHTML = `<img class="img_new" style="width: 12vw;" " src="${response["cards"][0]["image"]}">`;
@@ -89,7 +90,7 @@ function new_card(){
             };
         }
     });
-    pepito.send();
+    pepit.send();
 }
 
 const button = document.getElementById("nueva_card_higher")

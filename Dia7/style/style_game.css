@@ -720,3 +720,120 @@ body{
   justify-content: center;
   align-items: center;
 }
+/* Contenedor para los apartados de status */
+.status_container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 3vmin 0;
+  gap: 2vmin;
+}
+
+/* Estilo para cada caja de status */
+.status_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(145deg, rgba(0, 0, 0, 0.8), rgba(40, 40, 40, 0.7));
+  border-radius: 1.5vmin;
+  padding: 1.5vmin;
+  flex: 1;
+  min-width: 80px;
+  border: 0.2vmin solid rgba(252, 215, 0, 0.6);
+  box-shadow: 0 0.5vmin 1.5vmin rgba(0, 0, 0, 0.4), 0 0 2vmin rgba(252, 215, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.status_box:hover {
+  transform: translateY(-0.3vmin);
+  box-shadow: 0 0.8vmin 2vmin rgba(0, 0, 0, 0.5), 0 0 3vmin rgba(252, 215, 0, 0.3);
+}
+
+/* Estilo para las etiquetas */
+.status_label {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: clamp(0.7rem, 2.5vmin, 1rem);
+  color: #FCD700;
+  text-shadow: 0.1vmin 0.1vmin 0.2vmin rgba(0, 0, 0, 0.8);
+  text-align: center;
+  margin-bottom: 1vmin;
+  font-weight: 600;
+  letter-spacing: 0.1vmin;
+}
+
+/* Estilo para los valores */
+.status_value {
+  font-family: 'Impact', 'Haettenschweiler', sans-serif;
+  font-size: clamp(1.2rem, 4vmin, 1.8rem);
+  color: white;
+  text-shadow: 
+    0.1vmin 0.1vmin 0 #000000,
+    -0.1vmin 0.1vmin 0 #000000,
+    0.1vmin -0.1vmin 0 #000000,
+    -0.1vmin -0.1vmin 0 #000000,
+    0 0 0.8vmin rgba(252, 215, 0, 0.5);
+  font-weight: bold;
+  letter-spacing: 0.2vmin;
+}
+
+/* Estilos específicos para cada caja */
+#valor_actual {
+  border-color: rgba(0, 255, 0, 0.6);
+}
+
+#valor_actual .status_label {
+  color: #90EE90;
+}
+
+#valor_anterior {
+  border-color: rgba(255, 165, 0, 0.6);
+}
+
+#valor_anterior .status_label {
+  color: #FFA500;
+}
+
+#puntos {
+  border-color: rgba(255, 215, 0, 0.6);
+}
+
+#puntos .status_value {
+  color: #FCD700;
+  font-size: clamp(1.4rem, 5vmin, 2rem);
+  /* Efecto pulsante para los puntos */
+  animation: pulse-points 2s infinite;
+}
+
+/* Animación para los puntos */
+@keyframes pulse-points {
+  0%, 100% {
+    text-shadow: 
+      0.1vmin 0.1vmin 0 #000000,
+      -0.1vmin 0.1vmin 0 #000000,
+      0.1vmin -0.1vmin 0 #000000,
+      -0.1vmin -0.1vmin 0 #000000,
+      0 0 0.8vmin rgba(252, 215, 0, 0.5);
+  }
+  50% {
+    text-shadow: 
+      0.1vmin 0.1vmin 0 #000000,
+      -0.1vmin 0.1vmin 0 #000000,
+      0.1vmin -0.1vmin 0 #000000,
+      -0.1vmin -0.1vmin 0 #000000,
+      0 0 1.5vmin rgba(252, 215, 0, 0.8);
+  }
+}
+
+/* Ajustes responsivos */
+@media screen and (max-width: 480px) {
+  .status_container {
+    flex-direction: column;
+    gap: 1.5vmin;
+  }
+  
+  .status_box {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
