@@ -1,0 +1,13 @@
+@import url('./variables.css');
+body{
+    background-image: var(--color-background);
+}
+h1{
+    color: white;
+    font-size: 4vw;
+    text-align: center;
+}
+.div1{
+    display: flex;
+    flex-direction: column;
+}
