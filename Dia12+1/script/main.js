@@ -22,6 +22,19 @@ document.addEventListener('DOMContentLoaded',()=>{
             <br/><br/>`;
             datosContenedor.appendChild(capDiv)
             }
+            else if(cap.status === "Ready"){
+                capDiv.innerHTML = `<div class="capsula">
+                <div class="infotext">
+                    <p style="opacity: 0.5; text-decoration: line-through;" class="text_task">${cap.task}</p>
+                </div>
+                <div class="botones">
+                    <div class="terminado"><img class="terminado_img" src="./storage/img/like.png" data-id="${cap.id}" alt=""></div>
+                    <div class="eliminado"><img class="eliminado_img" src="./storage/img/delete.png" data-id="${cap.id}" alt=""></div>
+                </div>
+            </div>
+            <br/><br/>`;
+            datosContenedor.appendChild(capDiv)
+            }
         });
     }
 
