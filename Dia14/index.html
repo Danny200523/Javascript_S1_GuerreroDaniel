@@ -11,52 +11,53 @@
 
 <body>
     <div class="position-absolute top-50 start-50 translate-middle col-12">
-    <div class="container my-5 p-5 shadow">
+    <div id="form" class="container my-5 p-5 shadow">
         <h1>Gestion de Heroes</h1>
         <form>
             <div class="row mb-3">
                 <div class="col-6">
                 <label for="exampleInputEmail1" class="form-label">Nombre Del Personaje</label>
-                <input  type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input disabled type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
               </div>
               <div class="col-6">
                 <label for="exampleInputEmail1" class="form-label">Nombre Del Actor</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input disabled type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
               </div>
             </div>
             <div class="row mb-3">
                 <div class="col-6">
                 <label for="exampleInputEmail1" class="form-label">Edad Del Actor</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input disabled type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
               </div>
               <div class="col-6">
                 <label for="exampleInputEmail1" class="form-label">Ubicacion</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input disabled type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
               </div>
             </div>
             <div class="row mb-3">
                 <div class="col-6">
                 <label for="exampleInputEmail1" class="form-label">Poster</label>
-                <input  type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input disabled type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
               </div>
               <div class="col-6">
                 <label for="exampleInputEmail1" class="form-label">Ubicacion</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input disabled type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
               </div>
             </div>
             <div class="row mb-3">
                 <div class="col-12">
                 <label for="exampleInputEmail1" class="form-label">Productora</label>
-                <select  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <select disabled  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     <option value="1">MARVEL</option>
                     <option value="2">DC</option>
                 </select>
               </div>
             </div>
         </form>
-        <button type="button" class="btn btn-dark">Nuevo Heroe</button>
-        <button type="button" class="btn btn-primary">Guardar Heroe</button>
-        <button type="button" class="btn btn-danger">Cancelar</button>
+        <div class="Suits"></div>
+        <button id="buttonADD" type="button" class="btn btn-dark">Nuevo Heroe</button>
+        <button id="buttonSave" type="button" class="btn btn-primary">Guardar Heroe</button>
+        <button id="buttonCancel" type="button" class="btn btn-danger">Cancelar</button>
     </div>
 </div>
 </body>
