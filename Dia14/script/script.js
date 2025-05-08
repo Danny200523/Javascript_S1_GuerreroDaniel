@@ -1,5 +1,5 @@
 function addCharacter() {
-    const personaje = document.getElementById('form');
+    const personaje = document.getElementById('tt');
     personaje.innerHTML = `<h1>Gestion de Heroes</h1>
         <form>
             <div class="row mb-3">
@@ -79,6 +79,7 @@ function addCharacter() {
                 </div>
             </div>
         </form>`;
+    });
     const np = document.getElementById('nameper').value;
     const na = document.getElementById('nameAct').value;
     const ea = document.getElementById('edadAct').value;
@@ -93,36 +94,30 @@ function addCharacter() {
         ubicacion: ub,
         poster: ppos,
         date: dte
-    }})
-    const np = document.getElementById('nameper').value;
-    const na = document.getElementById('nameAct').value;
-    const ea = document.getElementById('edadAct').value;
-    const ub = document.getElementById('ubicacion').value;
-    const ppos = document.getElementById('pposter').value;
-    const dte = document.getElementById('datee').value;
-    const prod = document.getElementById('product').value;
-    const newHero = {
-        nameCharacter: np,
-        nameActor: na,
-        edadActor: ea,
-        ubicacion: ub,
-        poster: ppos,
-        date: dte
-    }
-    async function fetchData() {
-        const res = await fetch('https://67f91aad094de2fe6ea07a32.mockapi.io/people/project/Super-Hero');
-        let data = '';
+    };
+    async function fetchDataMarvel() {
+    const res = await fetch('https://67f91aad094de2fe6ea07a32.mockapi.io/people/project/MARVEL');
+        let data = [];
         data = await res.json();
         return data;
-    }
-    let data= [];
-    window.onload = async function(){
-        
-        data = await fetchData();
-    }
+    };
+    let dataMarvel = fetchDataMarvel();
     async function putData(superero) {
-        superero[prod].append(newHero);
-        await fetch(`https://67f91aad094de2fe6ea07a32.mockapi.io/people/project/Super-Hero`,{
+        if (prod==="MARVEL"){
+            await fetch(`https://67f91aad094de2fe6ea07a32.mockapi.io/people/project/MARVEL`,{
+                method:'PUT',
+                headers:{
+                    'Content-Type':'application/json'
+                        },
+                body:JSON.stringify({superero})
+                });
+            console.log('apea')
+            if (!Response.ok){
+                console.log("Invalid api")
+        }    
+        }
+        else if (prod==="DCOMICS"){
+            await fetch(`https://67f91aad094de2fe6ea07a32.mockapi.io/people/project/DCOMICS`,{
             method:'PUT',
             headers:{
                 'Content-Type':'application/json'
@@ -134,6 +129,7 @@ function addCharacter() {
                 console.log("Invalid api")
             }
         }
+        };
     const gd = document.getElementById('buttonSave');
     gd.addEventListener('click',function guardar(){
     putData(data);
