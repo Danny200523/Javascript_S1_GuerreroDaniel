@@ -94,21 +94,40 @@ function addCharacter() {
         poster: ppos,
         date: dte
     }})
-    return newHero;
+    const np = document.getElementById('nameper').value;
+    const na = document.getElementById('nameAct').value;
+    const ea = document.getElementById('edadAct').value;
+    const ub = document.getElementById('ubicacion').value;
+    const ppos = document.getElementById('pposter').value;
+    const dte = document.getElementById('datee').value;
+    const prod = document.getElementById('product').value;
+    const newHero = {
+        nameCharacter: np,
+        nameActor: na,
+        edadActor: ea,
+        ubicacion: ub,
+        poster: ppos,
+        date: dte
     }
-    data[prod].push(newHero);
     async function fetchData() {
-        await fetch(`https://67f91aad094de2fe6ea07a32.mockapi.io/people/project/Super-Hero`);
-        data = await resizeBy.JSON();
+        const res = await fetch('https://67f91aad094de2fe6ea07a32.mockapi.io/people/project/Super-Hero');
+        let data = '';
+        data = await res.json();
         return data;
     }
-    async function putData(data) {
+    let data= [];
+    window.onload = async function(){
+        
+        data = await fetchData();
+    }
+    async function putData(superero) {
+        superero[prod].append(newHero);
         await fetch(`https://67f91aad094de2fe6ea07a32.mockapi.io/people/project/Super-Hero`,{
             method:'PUT',
             headers:{
                 'Content-Type':'application/json'
                 },
-            body:JSON.stringify({data})
+            body:JSON.stringify({superero})
             });
             console.log('apea')
             if (!Response.ok){
@@ -116,10 +135,10 @@ function addCharacter() {
             }
         }
     const gd = document.getElementById('buttonSave');
-    gd.addEventListener('click',e=>{
-        fetchData();
-        putData(data);
-    })
+    gd.addEventListener('click',function guardar(){
+    putData(data);
+})
+}
 
 const newHero = document.getElementById('buttonADD');
 newHero.addEventListener('click', function casa() {
