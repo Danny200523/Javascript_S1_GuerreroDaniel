@@ -28,24 +28,105 @@ function todo(){
     .then(response => response.json())
     .then(data => {
       console.log(data)
-      cpets.innerHTML += `
+      data["animals"].forEach(element => {
+        if (data.animals[element].photos === null){
+        cpets.innerHTML += `
       <div class="card">
         <div class="card-image">
-          <img src="${data.animals[0].photos[0].full}" alt="Foto de Coco">
+          <img src="" alt="Foto de Coco">
           <button class="favorite">&#9829;</button>
         </div>
         <div class="card-content">
           <div class="header">
-            <h2>${data.animals[0].name}</h2>
+            <h2>${data.animals[element].name}</h2>
             <span class="age">2 Años</span>
           </div>
           <p class="description">
-          ${data.animals[0].description}
+          ${data.animals[element].description}
+          </p>
+          <button class="more-button">Conocer Más</button>
+        </div>
+      </div>
+      `;}
+      else if (data.animals[element].photos[element].full !== null){
+        cpets.innerHTML += `
+      <div class="card">
+        <div class="card-image">
+          <img src="${data.animals[element].photos[element].full}" alt="Foto de Coco">
+          <button class="favorite">&#9829;</button>
+        </div>
+        <div class="card-content">
+          <div class="header">
+            <h2>${data.animals[element].name}</h2>
+            <span class="age">2 Años</span>
+          </div>
+          <p class="description">
+          ${data.animals[element].description}
           </p>
           <button class="more-button">Conocer Más</button>
         </div>
       </div>
       `;
+      } else if (data.animals[element].photos[element].large !== null){
+        cpets.innerHTML += `
+      <div class="card">
+        <div class="card-image">
+          <img src="${data.animals[element].photos[element].large}" alt="Foto de Coco">
+          <button class="favorite">&#9829;</button>
+        </div>
+        <div class="card-content">
+          <div class="header">
+            <h2>${data.animals[element].name}</h2>
+            <span class="age">2 Años</span>
+          </div>
+          <p class="description">
+          ${data.animals[element].description}
+          </p>
+          <button class="more-button">Conocer Más</button>
+        </div>
+      </div>
+      `;
+      } else if (data.animals[element].photos[element].medium !== null){
+        cpets.innerHTML += `
+      <div class="card">
+        <div class="card-image">
+          <img src="${data.animals[element].photos[element].medium}" alt="Foto de Coco">
+          <button class="favorite">&#9829;</button>
+        </div>
+        <div class="card-content">
+          <div class="header">
+            <h2>${data.animals[element].name}</h2>
+            <span class="age">2 Años</span>
+          </div>
+          <p class="description">
+          ${data.animals[element].description}
+          </p>
+          <button class="more-button">Conocer Más</button>
+        </div>
+      </div>
+      `;
+      }
+      else if (data.animals[element].photos[element].small !== null){
+        cpets.innerHTML += `
+      <div class="card">
+        <div class="card-image">
+          <img src="${data.animals[element].photos[element].small}" alt="Foto de Coco">
+          <button class="favorite">&#9829;</button>
+        </div>
+        <div class="card-content">
+          <div class="header">
+            <h2>${data.animals[element].name}</h2>
+            <span class="age">2 Años</span>
+          </div>
+          <p class="description">
+          ${data.animals[element].description}
+          </p>
+          <button class="more-button">Conocer Más</button>
+        </div>
+      </div>
+      `;
+      }
+      });
     });
 })
 }
