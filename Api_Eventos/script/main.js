@@ -27,23 +27,24 @@ function todo(){
   })
     .then(response => response.json())
     .then(data => {
-      cpets.innerHTML = `
+      console.log(data)
+      cpets.innerHTML += `
       <div class="card">
-  <div class="card-image">
-    <img src="https://images.unsplash.com/photo-1601758123927-196d3f13b6c9" alt="Foto de Coco">
-    <button class="favorite">&#9829;</button>
-  </div>
-  <div class="card-content">
-    <div class="header">
-      <h2>Coco</h2>
-      <span class="age">2 Años</span>
-    </div>
-    <p class="description">
-      Coco es un pájaro colorido que puede aprender a hablar y silbar melodías.
-    </p>
-    <button class="more-button">Conocer Más</button>
-  </div>
-</div>
+        <div class="card-image">
+          <img src="${data.animals[0].photos[0].full}" alt="Foto de Coco">
+          <button class="favorite">&#9829;</button>
+        </div>
+        <div class="card-content">
+          <div class="header">
+            <h2>${data.animals[0].name}</h2>
+            <span class="age">2 Años</span>
+          </div>
+          <p class="description">
+          ${data.animals[0].description}
+          </p>
+          <button class="more-button">Conocer Más</button>
+        </div>
+      </div>
       `;
     });
 })
