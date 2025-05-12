@@ -1,7 +1,8 @@
 const cpets = document.getElementById('pets-container');
 const url = `https://api.petfinder.com/v2/animals`;
 
-fetch('https://api.petfinder.com/v2/oauth2/token', {
+function todo(){
+  fetch('https://api.petfinder.com/v2/oauth2/token', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded'
@@ -16,7 +17,7 @@ fetch('https://api.petfinder.com/v2/oauth2/token', {
   .then(data => {
     const token = data.access_token;
     console.log('Token recibido:', token);
-    fetch(`https://cors-anywhere.herokuapp.com/https://api.petfinder.com/v2/animals`,{
+    fetch(`${url}`,{
     method: 'GET',
     headers: {
       'accept':'*/*',
@@ -46,3 +47,5 @@ fetch('https://api.petfinder.com/v2/oauth2/token', {
       `;
     });
 })
+}
+document.addEventListener('DOMContentLoaded', todo);
