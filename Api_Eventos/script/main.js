@@ -27,6 +27,7 @@ function todo() {
         .then(data => {
           mascotas = data.animals;
           renderMascotas();
+          setupFavoriteHandler();
         });
     });
 }
@@ -58,8 +59,11 @@ function renderMascotas() {
 
 document.addEventListener('DOMContentLoaded', todo);
 
-let fav = document.getElementById('btF');
-
-fav.addEventListener('click',()=>{
-  
-})
+function setupFavoriteHandler() {
+  cpets.addEventListener('click', (e) => {
+    if (e.target && e.target.classList.contains('favorite')) {
+      let idMascota = e.target.getAttribute('data-id');
+      console.log('ID de mascota favorita:', idMascota);
+    }
+  });
+}
