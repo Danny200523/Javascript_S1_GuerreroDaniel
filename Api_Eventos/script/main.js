@@ -34,10 +34,8 @@ function todo() {
 
 function renderMascotas() {
   cpets.innerHTML = '';
-
   mascotas.forEach(mascota => {
     let imageSrc = mascota.photos[0]?.full || mascota.photos[0]?.large || mascota.photos[0]?.medium || mascota.photos[0]?.small || '';
-
     cpets.innerHTML += `
       <div class="card" id="cd" data-id="${mascota.id}">
         <div class="card-image">
